@@ -1,0 +1,17 @@
+{
+  "version": "0.1",
+  "dictionaryDefinitions": [
+    {
+      "name": "embedded",
+      "path": "../.dictionaries/dict_embedded.txt"
+    },
+    {
+      "name": "en",
+      "path": "../.dictionaries/dict_en.txt"
+    }
+  ],
+  "dictionaries": [
+    "embedded",
+    "en"
+  ]
+}

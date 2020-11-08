@@ -1,0 +1,4 @@
+cmake
+ddebug
+dndebug
+ggdb

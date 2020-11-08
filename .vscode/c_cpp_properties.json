@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "name": "Development",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "defines": [
+        "BUILD_MODE_STR=\"Debug\""
+      ],
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/g++",
+      "cStandard": "gnu17",
+      "cppStandard": "gnu++17"
+    }
+  ],
+  "version": 4
+}
