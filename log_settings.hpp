@@ -4,6 +4,7 @@
 #define LEVEL(x) LOG_LEVEL_##x
 
 #define LOG_LEVEL__COMMANDER       LEVEL(DEBUG)
+#define LOG_LEVEL__COMMANDS        LEVEL(DEBUG)
 #define LOG_LEVEL__RENDERER        LEVEL(DEBUG)
 
 #define LOG_LEVEL__CHANNEL         LEVEL(DEBUG)
