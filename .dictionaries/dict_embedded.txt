@@ -2,6 +2,9 @@ cmake
 ddebug
 dndebug
 ggdb
+memcheck
 mosi
 miso
 pmode
+rvalue
+valgrind
