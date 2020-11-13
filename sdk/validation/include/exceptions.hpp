@@ -25,6 +25,11 @@ protected:
 	}
 };
 
+class ParsingException : public VerificationException {
+public:
+	ParsingException(const std::string& command) : VerificationException(command) {}
+};
+
 } // namespace sdk::exceptions
 
 #endif // EXCEPTIONS_HPP

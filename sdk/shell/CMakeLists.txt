@@ -8,13 +8,13 @@ file(GLOB sources
 	${SRC_PATH}/**/*.cpp
 )
 
-add_library(${PROJECT_NAME} INTERFACE)
+add_library(${PROJECT_NAME} OBJECT ${sources})
 
-target_include_directories(${PROJECT_NAME} INTERFACE
+target_include_directories(${PROJECT_NAME} PUBLIC
 	${INC_PATH}
 )
 
-target_link_libraries(${PROJECT_NAME} INTERFACE
+target_link_libraries(${PROJECT_NAME} PUBLIC
 	logging
 	validation
 )
