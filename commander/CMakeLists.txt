@@ -15,6 +15,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE
 	logging
+	shell
 )
 
 include(print_target_size)

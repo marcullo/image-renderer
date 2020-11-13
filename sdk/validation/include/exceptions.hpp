@@ -30,6 +30,11 @@ public:
 	ParsingException(const std::string& command) : VerificationException(command) {}
 };
 
+class UnderstandingException : public VerificationException {
+public:
+	UnderstandingException(const std::string& command) : VerificationException(command) {}
+};
+
 } // namespace sdk::exceptions
 
 #endif // EXCEPTIONS_HPP
