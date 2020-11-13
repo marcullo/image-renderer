@@ -1,3 +1,4 @@
+#include <filesystem>
 #include <iostream>
 
 #include "Commander.hpp"
@@ -9,8 +10,43 @@
 #include "logging.hpp"
 
 using namespace commander;
+namespace fs = std::filesystem;
 
 namespace {
+
+__attribute((unused))
+int process_from_file(const char* filename)
+{
+	std::ifstream ifs{filename, std::ifstream::in};
+	std::string command;
+	Commander commander;
+
+	/* Read commands. */
+	while (true) {
+		std::getline(ifs, command);
+		if (!ifs.good()) {
+			break;
+		}
+
+		DBG("%u", command.length());
+
+		commander += command;
+	}
+
+	/* Process commands. */
+	while (true) {
+		try {
+			if (!commander.process()) {
+				break;
+			}
+		}
+		catch (std::exception& e) {
+			ERR("%s", e.what());
+		}
+	}
+
+	return EXIT_SUCCESS;
+}
 
 int process_from_stdin()
 {
@@ -48,6 +84,16 @@ int main(int argc, char* argv[])
 		return EXIT_FAILURE;
 	}
 
+	if (argc == 2) {
+		const char* filename = argv[1];
+		fs::path p{filename};
+
+		if (!fs::is_regular_file(p)) {
+			std::cout << "File path not found: " << p << std::endl;
+			return EXIT_FAILURE;
+		}
+	}
+
 	if (execute_renderer() != SlaveState::RUN) {
 		std::cout << "Failed to fork renderer! Make sure you're located in the same folder as me.";
 		return EXIT_FAILURE;
@@ -57,5 +103,10 @@ int main(int argc, char* argv[])
 		return process_from_stdin();
 	}
 
-	return EXIT_SUCCESS;
+	if (argc == 2) {
+		const char* filename = argv[1];
+		return process_from_file(filename);
+	}
+
+	return EXIT_FAILURE;
 }
