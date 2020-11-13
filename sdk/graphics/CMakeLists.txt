@@ -7,7 +7,6 @@ fetch_raw_lib(bitmap http://www.partow.net/downloads/bitmap.zip)
 
 project(graphics)
 
-file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/renders)
 file(GLOB sources
 	${SRC_PATH}/*.cpp
 	${SRC_PATH}/**/*.cpp
