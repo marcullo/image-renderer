@@ -1,3 +1,6 @@
+#include <sys/prctl.h>
+#include <signal.h>
+
 #include "Channel.hpp"
 #include "exceptions.hpp"
 #include "Renderer.hpp"
@@ -16,6 +19,8 @@ int main(void)
 	sdk::channel::ChannelMISO miso{false};
 	Renderer::rand_t dev;
 	Renderer rr{dev};
+
+	prctl(PR_SET_PDEATHSIG, SIGKILL);
 
 	while (true) {
 		try {
