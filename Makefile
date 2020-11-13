@@ -1,6 +1,7 @@
 .PHONY: clean
 .PHONY: debug
 .PHONY: default
+.PHONY: memcheck
 .PHONY: release
 .PHONY: .build
 .PHONY: .configure
@@ -12,6 +13,7 @@ CMAKE_DIR ?= $(OUTPUT_DIR)/cmake
 # ----- Params ----------------------------------------------------------------
 CMAKE_BUILD_TYPE ?= Release
 CMAKE_SIZE ?= size
+SAMPLE ?= $(CURDIR)/samples/crop_extend.txt
 
 # ----- Flags -----------------------------------------------------------------
 ifeq ($(VERBOSE), 1)
@@ -35,6 +37,7 @@ cmakeflags += $(if $(value CMAKE_BUILD_TYPE),-DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TY
 cmakebuild += nice cmake --build
 cmakebuildflags += --parallel $(NPROC)
 
+valgrindflags += --tool=memcheck --leak-check=full --show-leak-kinds=all -s
 # ----- Targets ---------------------------------------------------------------
 default: debug
 
@@ -55,4 +58,8 @@ clean:
 	${cmakebuild} $(CMAKE_DIR) --target $* ${cmakebuildflags}
 
 # ----- Tests & checks --------------------------------------------------------
-# TODO: Provide tests
+memcheck:
+	echo
+	echo "Sample: $(SAMPLE)"
+	echo
+	cd ${OUTPUT_DIR} && valgrind $(valgrindflags) ./commander $(SAMPLE)
