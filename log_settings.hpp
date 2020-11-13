@@ -6,4 +6,6 @@
 #define LOG_LEVEL__COMMANDER       LEVEL(DEBUG)
 #define LOG_LEVEL__RENDERER        LEVEL(DEBUG)
 
+#define LOG_LEVEL__IMAGE           LEVEL(DEBUG)
+
 #endif // LOG_SETTINGS_HPP
