@@ -2,3 +2,6 @@ cmake
 ddebug
 dndebug
 ggdb
+mosi
+miso
+pmode
