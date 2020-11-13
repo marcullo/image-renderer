@@ -1,6 +1,7 @@
 #ifndef COMMANDER_HPP
 #define COMMANDER_HPP
 
+#include <fstream>
 #include <queue>
 
 #include "Channel.hpp"
@@ -24,8 +25,12 @@ public:
 	bool process();
 
 protected:
+	using output_t = std::ofstream;
+
 	sdk::channel::ChannelMOSI mosi; /** Input communication channel. */
 	sdk::channel::ChannelMISO miso; /** Output communication channel. */
+	output_t log; /** Log stream to a file. */
+	std::string log_filename; /** Log file name. */
 	commands_t commands; /** List of commands (if read from file). */
 };
 

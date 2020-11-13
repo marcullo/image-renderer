@@ -14,7 +14,9 @@ namespace commander {
 
 Commander::Commander() :
 	mosi(true),
-	miso(true)
+	miso(true),
+	log(),
+	log_filename("log.txt")
 {}
 
 Commander& Commander::operator+=(const std::string& command)
@@ -34,10 +36,15 @@ bool Commander::process()
 	this->mosi.send(command);
 
 	auto response = this->miso.receive();
-	const int size = strlen(response.c_str());
+	const char* raw = response.c_str();
+	const int size = strlen(raw);
 
 	/* We assume empty response is ok (ack). */
 	if (size) {
+		if (!log.is_open()) {
+			log.open(Commander::log_filename, std::ofstream::app);
+		}
+		log << raw << std::endl;
 		throw vs::UnderstandingException(response);
 	}
 
