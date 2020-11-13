@@ -39,6 +39,9 @@ add_compile_options(
 add_compile_definitions(
 	BUILD_MODE_STR=$<IF:$<CONFIG:DEBUG>,"Debug","Release">
 )
+include_directories(
+	${CMAKE_CURRENT_SOURCE_DIR}
+)
 add_link_options(
 	-Wl,--gc-sections
 )

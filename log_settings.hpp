@@ -1,0 +1,9 @@
+#ifndef LOG_SETTINGS_HPP
+#define LOG_SETTINGS_HPP
+
+#define LEVEL(x) LOG_LEVEL_##x
+
+#define LOG_LEVEL__COMMANDER       LEVEL(DEBUG)
+#define LOG_LEVEL__RENDERER        LEVEL(DEBUG)
+
+#endif // LOG_SETTINGS_HPP
