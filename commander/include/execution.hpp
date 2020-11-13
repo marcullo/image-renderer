@@ -12,6 +12,9 @@ enum class SlaveState {
 /** Run the slave program. */
 SlaveState execute_renderer();
 
+/** Kill the slave program. */
+void kill_renderer();
+
 } // namespace commander
 
 #endif // EXECUTION_HPP

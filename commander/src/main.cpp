@@ -45,6 +45,8 @@ int process_from_file(const char* filename)
 		}
 	}
 
+	kill_renderer();
+
 	return EXIT_SUCCESS;
 }
 
@@ -69,6 +71,8 @@ int process_from_stdin()
 			ERR("%s", e.what());
 		}
 	}
+
+	kill_renderer();
 
 	return EXIT_SUCCESS;
 }
@@ -107,6 +111,8 @@ int main(int argc, char* argv[])
 		const char* filename = argv[1];
 		return process_from_file(filename);
 	}
+
+	kill_renderer();
 
 	return EXIT_FAILURE;
 }
