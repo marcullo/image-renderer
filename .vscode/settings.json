@@ -3,6 +3,12 @@
     "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${workspaceFolder}/_build",
   },
   "cmake.buildDirectory": "${workspaceFolder}/_build/cmake",
+  "python.linting.pylintEnabled": false,
+  "python.linting.pylamaEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.pylamaArgs": [
+    "-i W,E501"
+  ],
   "search.exclude": {
     "**/.git": true,
     "external/Unity/**": true

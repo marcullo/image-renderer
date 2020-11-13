@@ -48,4 +48,5 @@ add_link_options(
 
 add_subdirectory(commander)
 add_subdirectory(renderer)
+add_subdirectory(samples)
 add_subdirectory(sdk)
