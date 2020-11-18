@@ -61,9 +61,9 @@ make [debug|release] VERBOSE=1 # for verbose build
 
 ### Run
 
-There are two modes of operation. In both you are launching commander which further runs the renderer. Beware of [build consequences](#consequences).
+There are two modes of operation. In both you are launching commander which further runs the renderer. Beware of [build consequences](#consequences). You need to run Commander which will then launch Renderer in a separate process automatically.
 
-**Warning**: You cannot run either of programs standalone! Modify source code a bit if needed.
+**Warning**: Renderer and Commander depend on each other. You cannot run either of programs standalone! Modify source code a bit if needed.
 
 ###### Interactive mode
 
