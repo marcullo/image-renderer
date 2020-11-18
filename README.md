@@ -106,6 +106,14 @@ There are two modes of operation. In both you are launching commander which furt
 
 The `squared.bmp` will be saved in `_build/renders/squared`.
 
+### Clean
+
+```shell
+make clean
+# or
+rm -rf _build
+```
+
 ### Test
 
 In order to verify the memory state during the program execution run
