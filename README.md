@@ -49,6 +49,8 @@ Select a mode then build. It will produce two files: `commander` and `renderer` 
 make release # -Os -g0 -DNDEBUG
 # or
 make debug # -O1 -ggdb3 -DDEBUG
+# or
+make [debug|release] VERBOSE=1 # for verbose build
 ```
 
 ### Run
