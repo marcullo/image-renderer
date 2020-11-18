@@ -44,21 +44,45 @@ sudo apt-get install gcc g++ cmake ninja-build
 
 ### Build
 
-Select a mode then build. It will produce two files: `commander` and `renderer` in `_build` folder.
+Select a mode then build. It will produce two files: `commander` and `renderer` in `_build` folder whereas CMake build files will be in `_build/cmake` (by default).
+
+The suggested generator is `Ninja`. There are two build modes: `release` and `debug`. You can also print verbose build information if needed.
+
+#### Consequences
+
+- `release` - you have very limited information printed in console (only confirmations of valid commands sent to the `renderer` in [interactive mode](#interactive-mode)) and you have `-Os -g0 -DNDEBUG` options,
+- `debug`- you can have the module-oriented logging of programs execution to a console (`log_settings.hpp`) and you have `-O1 -ggdb3 -DDEBUG` options,
+- `VERBOSE` - it shows a verbose build log only and does not affect the target.
+
+#### Compilation
+
+###### with Make helper
 
 ```shell
 make release # -Os -g0 -DNDEBUG
 # or
 make debug # -O1 -ggdb3 -DDEBUG
-# or
-make [debug|release] VERBOSE=1 # for verbose build
+# or verbosely
+make [debug|release] VERBOSE=1
 ```
 
-#### Consequences
+###### CMake only
 
-- `release` - you have very limited information printed in console (only confirmations of valid commands sent to the `renderer` in [interactive mode](#interactive-mode)),
-- `debug`- you can have the module-oriented logging of programs execution to a console (set up `log_settings.hpp`),
-- `VERBOSE=1` - it shows a verbose build log only and does not affect the target.
+1. Configure
+
+Assuming you provide `BUILD_TYPE` (either `Debug` or `Release`), run the configuration command below. To allow to compile verbosely, append `-DCMAKE_VERBOSE_MAKEFILE=TRUE`.
+
+```shell
+cmake -GNinja -S . -B _build/cmake -DCMAKE_BUILD_TYPE=<BUILD_TYPE>
+```
+
+2. Compile
+
+```shell
+cmake --build _build/cmake --target all
+```
+
+The `CMAKE_OUTPUT_DIRECTORY` is set to `_build` by default so please find compiled targets there.
 
 ### Run
 

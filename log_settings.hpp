@@ -1,6 +1,7 @@
 #ifndef LOG_SETTINGS_HPP
 #define LOG_SETTINGS_HPP
 
+/** Severity: OFF, ERROR, INFO, DEBUG. */
 #define LEVEL(x) LOG_LEVEL_##x
 
 #define LOG_LEVEL__COMMANDER       LEVEL(OFF)
