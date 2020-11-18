@@ -25,6 +25,7 @@ Author's environment in parenthesis.
 - Linux x64 (Ubuntu 20.04)
 - GCC (9.2)
 - CMake (3.16)
+- Make (4.2.1)
 - Ninja (1.10.0)
 
 Optional:
