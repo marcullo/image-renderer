@@ -6,7 +6,6 @@
         "${workspaceFolder}/**"
       ],
       "defines": [
-        "BUILD_MODE_STR=\"Debug\""
       ],
       "intelliSenseMode": "gcc-x64",
       "compilerPath": "/usr/bin/g++",

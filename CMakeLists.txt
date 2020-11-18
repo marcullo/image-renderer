@@ -36,9 +36,6 @@ add_compile_options(
 	-Wextra
 	-Werror
 )
-add_compile_definitions(
-	BUILD_MODE_STR=$<IF:$<CONFIG:DEBUG>,"Debug","Release">
-)
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}
 )
