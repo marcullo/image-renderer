@@ -27,6 +27,7 @@ int main(void)
 			std::string request = mosi.receive();
 			rr.process(request);
 
+			std::cout << "ok\n";
 			std::string ok_response{""};
 			miso.send(ok_response);
 		}
