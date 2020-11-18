@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 include(set_runtime_output_directory)
 
 project(image_renderer)
