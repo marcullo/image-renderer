@@ -53,22 +53,30 @@ make debug # -O1 -ggdb3 -DDEBUG
 make [debug|release] VERBOSE=1 # for verbose build
 ```
 
+#### Consequences
+
+- `release` - you have very limited information printed in console (only confirmations of valid commands sent to the `renderer` in [interactive mode](#interactive-mode)),
+- `debug`- you can have the module-oriented logging of programs execution to a console (set up `log_settings.hpp`),
+- `VERBOSE=1` - it shows a verbose build log only and does not affect the target.
+
 ### Run
 
-There are two modes of operation. In both you are launching commander which further runs the renderer.
+There are two modes of operation. In both you are launching commander which further runs the renderer. Beware of [build consequences](#consequences).
 
 **Warning**: You cannot run either of programs standalone! Modify source code a bit if needed.
 
 ###### Interactive mode
 
 ```shell
+# in _build directory run:
 ./commander # you need to type commands manually
 ```
 
 ###### Lazy mode
 
 ```shell
-./commander ../samples/squared.txt
+# in _build directory run:
+./commander ../samples/squared.txt # provide the file with commands
 ```
 
 The `squared.bmp` will be saved in `_build/renders/squared`.
